@@ -139,7 +139,7 @@ bool cInverter::query(const char *cmd) {
     else
       lprintf("DEBUG:  %d bytes written, %d bytes sent, %d bytes remaining", written, bytes_sent, remaining);
 
-    chunk_size = remaining;
+    // chunk_size = remaining; // THIS is the BUG that prevents to send commands with 6 character lenght (eg QPIGS2 )
     usleep(50000);   // Sleep 50ms before sending another 8 bytes of info
   }
 
